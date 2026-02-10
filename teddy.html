@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Teddy Day</title>
+<title>Teddy Hug</title>
 
 <style>
 body {
   margin: 0;
   height: 100vh;
-  background: linear-gradient(to bottom, #1a1a1a, #000);
+  background: linear-gradient(to bottom, #111, #000);
   overflow: hidden;
   font-family: 'Segoe UI', sans-serif;
   color: white;
@@ -17,12 +17,11 @@ body {
 .container {
   position: relative;
   z-index: 2;
-  top: 20%;
+  top: 18%;
 }
 
 h1 {
   font-size: 38px;
-  margin-bottom: 10px;
 }
 
 p {
@@ -42,10 +41,11 @@ button {
   cursor: pointer;
 }
 
+/* Teddy rain */
 .teddy {
   position: absolute;
   top: -50px;
-  font-size: 32px;
+  font-size: 30px;
   animation: fall linear infinite;
 }
 
@@ -54,10 +54,26 @@ button {
   100% { transform: translateY(110vh); opacity: 0; }
 }
 
-#hug {
+/* Hug animation */
+#hugBox {
   display: none;
-  margin-top: 30px;
-  font-size: 22px;
+  margin-top: 35px;
+}
+
+#hugTeddy {
+  font-size: 90px;
+  animation: hug 2s ease-in-out infinite;
+}
+
+@keyframes hug {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+#hugText {
+  margin-top: 15px;
+  font-size: 20px;
 }
 </style>
 </head>
@@ -68,25 +84,25 @@ button {
   <h1>Happy Teddy Day 🧸</h1>
 
   <p>
-    This teddy rain is just a reminder that  
-    even on the darkest days, softness exists.  
-    You deserve warmth, comfort, and a love  
-    that feels safe — always.
+    This teddy rain is here to remind you —  
+    softness still exists, comfort still exists,  
+    and you are never alone.
   </p>
 
   <button onclick="showHug()">Want a Hug?</button>
 
-  <div id="hug">
-    🤍🧸  
-    <br><br>
-    A white teddy wants to hug you tight  
-    and tell you —  
-    <b>everything will be okay.</b>
+  <div id="hugBox">
+    <div id="hugTeddy">🤍🧸🤍</div>
+    <div id="hugText">
+      This white teddy is hugging you tight 🤍  
+      <br>
+      <b>Everything will be okay.</b>
+    </div>
   </div>
 </div>
 
 <script>
-// Teddy rain
+// Teddy rain nonstop
 setInterval(() => {
   let teddy = document.createElement("div");
   teddy.className = "teddy";
@@ -96,10 +112,10 @@ setInterval(() => {
   document.body.appendChild(teddy);
 
   setTimeout(() => teddy.remove(), 6000);
-}, 300);
+}, 250);
 
 function showHug() {
-  document.getElementById("hug").style.display = "block";
+  document.getElementById("hugBox").style.display = "block";
 }
 </script>
 
