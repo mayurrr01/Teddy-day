@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Teddy Day</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(to bottom, #1a1a1a, #000);
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  top: 20%;
+}
+
+h1 {
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 18px;
+  max-width: 420px;
+  margin: auto;
+}
+
+button {
+  margin-top: 25px;
+  padding: 14px 35px;
+  font-size: 18px;
+  border: none;
+  border-radius: 40px;
+  background: white;
+  color: black;
+  cursor: pointer;
+}
+
+.teddy {
+  position: absolute;
+  top: -50px;
+  font-size: 32px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(110vh); opacity: 0; }
+}
+
+#hug {
+  display: none;
+  margin-top: 30px;
+  font-size: 22px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Happy Teddy Day 🧸</h1>
+
+  <p>
+    This teddy rain is just a reminder that  
+    even on the darkest days, softness exists.  
+    You deserve warmth, comfort, and a love  
+    that feels safe — always.
+  </p>
+
+  <button onclick="showHug()">Want a Hug?</button>
+
+  <div id="hug">
+    🤍🧸  
+    <br><br>
+    A white teddy wants to hug you tight  
+    and tell you —  
+    <b>everything will be okay.</b>
+  </div>
+</div>
+
+<script>
+// Teddy rain
+setInterval(() => {
+  let teddy = document.createElement("div");
+  teddy.className = "teddy";
+  teddy.innerHTML = "🧸";
+  teddy.style.left = Math.random() * 100 + "vw";
+  teddy.style.animationDuration = (Math.random() * 3 + 3) + "s";
+  document.body.appendChild(teddy);
+
+  setTimeout(() => teddy.remove(), 6000);
+}, 300);
+
+function showHug() {
+  document.getElementById("hug").style.display = "block";
+}
+</script>
+
+</body>
+</html>
